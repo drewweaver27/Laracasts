@@ -23,7 +23,7 @@ Request -> routes -> controller -> load necessary info for the response -> view 
     * The forward slash when defining a route is optional 
     * Blade is the templating engine for Laravel 
     * A get request:
-        ``` 
+        `
         Route::get('/endpointName', function () {     return view('nameOfTheView'); }); 
-        ```
+        `
  
