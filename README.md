@@ -131,3 +131,35 @@ Return view (‘posts’ , [
 * Use the models kind of like objects 
     - To mark an assignment complete, make a complete function that marks the assignment 
 complete and the call it whenever you want to complete an assignment 
+
+## Laracast 4 - Views
+
+#### 1. Layout Pages
+* Create a layout page in resources/views -> layout.blade.php
+* Move the _structure_ out of the welcome.blade.php but leave the content
+* in welcome.blade.php 
+    - `@import ('layout')`
+    - wrap html with `@section('content')` and `@endsection`
+* in layout.blade.php, in the body, `@yield('content')` 
+    - you can create as many yields as you want, ex:
+        ```
+        @yield('header')
+        @yield('content')
+        @yield('footer')
+        ```
+* to create more templates, create `filename.blade.php` and then `@import('layout')
+
+#### 2. Integrate a Site Template
+* https://templated.co/simplework
+* assets go in the public directory
+    - create css folder
+    - update styles to `css/default.css`
+* Only have stuff in the blade files that I want to be visible
+
+#### 3. Set an active navigation link
+* `<li class="{{ Request::path() === 'about' ? 'current_page_item' : ''}}><a .....>About</a></li>`
+
+#### 4. Asset Compilation with Laravel Mix and webpack
+If vanilla Js or CSS is being used, it can go in public. If a JS library (npm, vue) or SASS or something else is being used that requires a build process, it goes in the resources. 
+* webpack.mix.js is Laravels built-in webpack file. It takes an intake and output directory. 
+* npm is included (YAY!) so and we have some dependencies included that have yet to be installed, so lets install them
