@@ -1,6 +1,21 @@
 # Laracasts
 My journal for the CIS 401 Laracasts assignments
 
+- [Laracast 1 - Prerequisets](#laracast-1---prerequisets)
+    + [1. The control flow at a glance](#1-the-control-flow-at-a-glance)
+    + [2. Install PHP, MySQL, and Composer](#2-install-php--mysql--and-composer)
+    + [3. Install Laravel Installer](#3-install-laravel-installer)
+    + [4. Laravel Valet Setup – Mac only, does not apply](#4-laravel-valet-setup---mac-only--does-not-apply)
+- [Laracast 2 - Routing](#laracast-2---routing)
+    + [1. Basic Routing and Views](#1-basic-routing-and-views)
+    + [2. Pass Request Data to Views](#2-pass-request-data-to-views)
+    + [3. Route Wildcards](#3-route-wildcards)
+    + [4. Routing Controllers](#4-routing-controllers)
+- [Laracast 3 - Database Access](#laracast-3---database-access)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 ## Laracast 1 - Prerequisets 
 
 #### 1. The control flow at a glance 
