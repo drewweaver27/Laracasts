@@ -12,6 +12,9 @@ My journal for the CIS 401 Laracasts assignments
     + [3. Route Wildcards](#3-route-wildcards)
     + [4. Routing Controllers](#4-routing-controllers)
 - [Laracast 3 - Database Access](#laracast-3---database-access)
+- [Laracast 4 - Views](#laracast-4---views)
+    + [1. Layout Pages ](#1-layout-pages)
+    + [2. Integrate a Site Template](#2-integrate-a-site-template)
 
 ## Laracast 1 - Prerequisets 
 
