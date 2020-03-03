@@ -13,9 +13,6 @@ My journal for the CIS 401 Laracasts assignments
     + [4. Routing Controllers](#4-routing-controllers)
 - [Laracast 3 - Database Access](#laracast-3---database-access)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
 ## Laracast 1 - Prerequisets 
 
 #### 1. The control flow at a glance 
