@@ -67,6 +67,7 @@ Route::get('/posts/{post}', function ($post) {
         'post' => $posts[$post]     
     ]); 
 }); 
+```
  
 #### 4. Routing Controllers
 * controllers are in app/http/Controllers
