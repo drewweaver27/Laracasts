@@ -94,3 +94,28 @@ class PostController{
     } 
 ?> 
 ```
+
+## Laracast 3 - Database Access
+* Make sure the DB_Connection is set to mysql in the env file.  
+* To access the database, import the database class (use db) 
+* To make a call to the database from the route in a controller with the Post eloquent model 
+```
+Return view (‘posts’ , [ 
+    ‘post’ => Post::where(‘slug’, $slug)->firstOrFail() 
+]);
+``` 
+* `FirstOrFail()` will try to find the first record or it will throw an error 404 
+* To make the model: php artisan make:model Post 
+* Create a table with a migration 
+    - `Php artisan make:migration create_posts_table` 
+    - The `up()` function are all things we want to add 
+        - `$table->text(‘body’)` 
+    - The `down()` function are things to drop if need be 
+    - To migrate -> `php artisan migrate` 
+    - To revert -> `php artisan migrate:rollback` 
+* To make a multple files at once, review the help to choose which flags to use. `Php artisan help make:model` 
+* If you construct a full query, `all()` won’t work, just use get 
+* `Php artisan tinker` to sandbox from the command line 
+* Use the models kind of like objects 
+    - To mark an assignment complete, make a complete function that marks the assignment 
+complete and the call it whenever you want to complete an assignment 
