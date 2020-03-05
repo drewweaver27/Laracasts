@@ -15,6 +15,8 @@ My journal for the CIS 401 Laracasts assignments
 - [Laracast 4 - Views](#laracast-4---views)
     + [1. Layout Pages ](#1-layout-pages)
     + [2. Integrate a Site Template](#2-integrate-a-site-template)
+    + [3. Set an active navigation link](#3-set-an-active-navigation-link)
+    + [4. Asset compilation with Laravel mix and Webpack](#4-asset-compilation-with-laravel-mix-and-webpack)
 
 ## Laracast 1 - Prerequisets 
 
