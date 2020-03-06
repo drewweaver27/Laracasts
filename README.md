@@ -168,3 +168,59 @@ complete and the call it whenever you want to complete an assignment
 If vanilla Js or CSS is being used, it can go in public. If a JS library (npm, vue) or SASS or something else is being used that requires a build process, it goes in the resources. 
 * webpack.mix.js is Laravels built-in webpack file. It takes an intake and output directory. 
 * npm is included (YAY!) so and we have some dependencies included that have yet to be installed, so lets install them
+* we can use this for things like SASS
+
+#### 5. Render Dynamic Data
+1. `php artisan make:model Article -m` to make a new model and migration
+2. in create_articles_table, add fields and then artisan mirgrate
+3. create some articles with artisan tinker
+4. display them with a Route
+5. To get a certian number of results `$article = App\Article::take(2)->get(); return $article; `
+6. To paginate`$article = App\Article::paginate(2) return $article; `
+7. To get in order from oldest to newest `$article = App\Article::latest('optional_timestamp')->get(); return $article; `
+8. Heres the route for this section on the homepage
+    ```
+    Route::get('/', function (){
+    return view ('welcome', [
+        //since we made only one, lets just use all
+        'articles' => App\Article::all()
+    ]);
+});
+    ```
+9. Heres the view code 
+    ```
+    <div id="sidebar">
+			<ul class="style1">
+				@foreach($articles as $article)
+				<li class="first">
+					<h3>{{$article->title}}</h3>
+					<p><a href="#">{{$article->body}}</a></p>
+				</li>
+				@endforeach
+            </ul>
+    ```
+
+#### 6. Render Dynamic Data : Part 2
+1. Create a new route to an article page
+    `Route::get('/articles/{article}', 'ArticlesController@show');`
+2. Add a controller and its show function
+    ```
+    <?php
+
+namespace App\Http\Controllers;
+
+use App\Article;
+use Illuminate\Http\Request;
+
+class ArticlesController extends Controller
+{
+    public function show($id){
+        $article = Article::find($id);
+
+        return view('articles.show', ['article' => $article]);
+    }
+}
+?>
+    ```
+3. Add to the view 
+

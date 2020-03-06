@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function (){
-    return view ('welcome');
+    return view ('welcome', [
+        'articles' => App\Article::all()
+    ]);
 });
 
 Route::get('/posts/{post}', 'PostController@show');
@@ -21,3 +23,4 @@ Route::get('/contact', function(){
     return view('contact');
 });
 
+Route::get('/articles/{article}', 'ArticlesController@show');
