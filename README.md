@@ -17,6 +17,8 @@ My journal for the CIS 401 Laracasts assignments
     + [2. Integrate a Site Template](#2-integrate-a-site-template)
     + [3. Set an active navigation link](#3-set-an-active-navigation-link)
     + [4. Asset compilation with Laravel mix and Webpack](#4-asset-compilation-with-laravel-mix-and-webpack)
+    + [5. Render Dynamic Data](#5-Render-Dynamic-Data)
+    + [6. Render Dynamic Data P2](#6-Render-Dynamic-Data-P2)
 
 ## Laracast 1 - Prerequisets 
 
@@ -200,7 +202,7 @@ If vanilla Js or CSS is being used, it can go in public. If a JS library (npm, v
             </ul>
     ```
 
-#### 6. Render Dynamic Data : Part 2
+#### 6. Render Dynamic Data P2
 1. Create a new route to an article page
     `Route::get('/articles/{article}', 'ArticlesController@show');`
 2. Add a controller and its show function
