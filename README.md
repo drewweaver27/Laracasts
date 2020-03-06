@@ -206,21 +206,20 @@ If vanilla Js or CSS is being used, it can go in public. If a JS library (npm, v
 2. Add a controller and its show function
     ```
     <?php
+    namespace App\Http\Controllers;
 
-namespace App\Http\Controllers;
+    use App\Article;
+    use Illuminate\Http\Request;
 
-use App\Article;
-use Illuminate\Http\Request;
+    class ArticlesController extends Controller
+    {
+        public function show($id){
+            $article = Article::find($id);
 
-class ArticlesController extends Controller
-{
-    public function show($id){
-        $article = Article::find($id);
-
-        return view('articles.show', ['article' => $article]);
+            return view('articles.show', ['article' => $article]);
+        }
     }
-}
-?>
+    ?>
     ```
 3. Add to the view 
 
