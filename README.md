@@ -180,12 +180,12 @@ If vanilla Js or CSS is being used, it can go in public. If a JS library (npm, v
 7. To get in order from oldest to newest `$article = App\Article::latest('optional_timestamp')->get(); return $article; `
 8. Heres the route for this section on the homepage
     ```
-    Route::get('/', function (){
-    return view ('welcome', [
-        //since we made only one, lets just use all
-        'articles' => App\Article::all()
-    ]);
-});
+        Route::get('/', function (){
+        return view ('welcome', [
+            //since we made only one, lets just use all
+            'articles' => App\Article::all()
+        ]);
+    });
     ```
 9. Heres the view code 
     ```
