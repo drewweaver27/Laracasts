@@ -19,6 +19,7 @@ My journal for the CIS 401 Laracasts assignments
     + [4. Asset compilation with Laravel mix and Webpack](#4-asset-compilation-with-laravel-mix-and-webpack)
     + [5. Render Dynamic Data](#5-Render-Dynamic-Data)
     + [6. Render Dynamic Data P2](#6-Render-Dynamic-Data-P2)
+- [Laracast 5 - Forms](#laracast-5---forms)
 
 ## Laracast 1 - Prerequisets 
 
@@ -225,3 +226,62 @@ If vanilla Js or CSS is being used, it can go in public. If a JS library (npm, v
     ```
 3. Add to the view 
 
+## Laracast 5 - Forms 
+
+#### 1. The Seven Restful Controller Actions
+## Holy cow my CSS has gotten all messed up and views are all mix-matched
+
+    1. `Index()` gets a list
+    2. `show()` shows a particular item
+    3. `create()` create a new resource
+    4. `store()` a way to persist data
+    5. `edit()` a way to edit data
+    6. `update()` persist the update/edit
+    7. `destory()` delete a resource
+
+* to make all of these functions when creating a new controller, `php artisan make:controller ControllerName -r -m`
+* -r creates it with all the functions, -m ties it to a model
+
+#### 2. Restful Routing
+
+* GET - display 
+* POST - create a new resource 
+* PUT - update a resource
+* DELETE - delete a resource
+
+#### 3. Form Handling
+
+* Order matters in routing, make sure the routes are in the right order when looking at wildcards
+* looking into a folder, do `folderName.file`
+* always add `@csrf`
+
+
+#### 4. Forms That Submit PUT Requests
+
+* use the `return view('articles.edit', compact('article'));` instead of `return view('articles.show', ['article' => $article]);`
+* to do a put, `form method="POST"` and add `@method('PUT')`
+
+#### 5. Form Validation Essentials
+
+* To validate in the controller
+    ```       
+    request()->validate([
+    'title' => 'required',
+    'excerpt' => 'required',
+    'body' => 'required'
+    ]);
+    ```
+* in the view
+    ```
+    <div class="control">
+        <input type="text" 
+        class="input @error('title') is-danger @enderror" 
+        name="title" 
+        id="title"
+        value="{{ old('title') }} ">
+
+        @error('title')
+            <p class="help is-danger">{{$errors->first('title')}}</p>
+        @enderror
+    </div>
+    ```

@@ -17,10 +17,15 @@ Route::get('/', function (){
     ]);
 });
 
-Route::get('/posts/{post}', 'PostController@show');
-
-Route::get('/contact', function(){
-    return view('contact');
+Route::get('/articles', function(){
+    return view('articles.index', [
+        'articles' => App\Article::latest()->get()
+    ]);
 });
 
+Route::get('/articles', 'ArticlesController@index');
+Route::post('/articles', 'ArticlesController@store');
+Route::get('articles/create', 'ArticlesController@create');
 Route::get('/articles/{article}', 'ArticlesController@show');
+Route::get('/articles/{article}/edit', 'ArticlesController@edit');
+Route::put('/articles/{article}', 'ArticlesController@update');
