@@ -20,6 +20,7 @@ My journal for the CIS 401 Laracasts assignments
     + [5. Render Dynamic Data](#5-Render-Dynamic-Data)
     + [6. Render Dynamic Data P2](#6-Render-Dynamic-Data-P2)
 - [Laracast 5 - Forms](#laracast-5---forms)
+- [Laracast 6 - Controller Techniques](#laracast-6---Controller-Techniques)
 
 ## Laracast 1 - Prerequisets 
 
@@ -285,3 +286,30 @@ If vanilla Js or CSS is being used, it can go in public. If a JS library (npm, v
         @enderror
     </div>
     ```
+
+## Laracast 6 - Controller Techniques
+#### 1. Leverage Route Model Binding
+* we can refactor by removing this line `$article = Article::find($id);` and changing the methods to take an article
+`public function update(Article $article)`. The wildcard must be the same name in the route or else it won't work
+
+#### 2. Reduce Duplication 
+* To reduce the duplication of code and made things more reusable, we can create a validation function and move the validation code so it can be reused through a function call.
+    ```
+    protected function validateArticle(){
+        return request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
+    }
+    ```
+We can then call this function to create - `Article::create($this->validateArticle());` or update - `Article::update($this->validateArticle());`
+
+* The protected fields will have to be changed in the model to allow this. `protected guarded = [];`
+
+#### 3. Consider Named Routes
+* As a better naming practice, you can give a name to routes so the uri can be changed without having to go change all of the other hardcoded instances of throughout the app `Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');`
+
+* This can be accessed by `<a href="{{ route('articles.show', $article}}">{{$article->title}}</a>`
+
+* The redirect gets changed to `return redirect(route('articles.show', $article));`
