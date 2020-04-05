@@ -21,6 +21,7 @@ My journal for the CIS 401 Laracasts assignments
     + [6. Render Dynamic Data P2](#6-Render-Dynamic-Data-P2)
 - [Laracast 5 - Forms](#laracast-5---forms)
 - [Laracast 6 - Controller Techniques](#laracast-6---Controller-Techniques)
+- [Laracast 7 - Eloquent](#laracast-7---Eloquent)
 
 ## Laracast 1 - Prerequisets 
 
@@ -313,3 +314,79 @@ We can then call this function to create - `Article::create($this->validateArtic
 * This can be accessed by `<a href="{{ route('articles.show', $article}}">{{$article->title}}</a>`
 
 * The redirect gets changed to `return redirect(route('articles.show', $article));`
+
+## 7. Laracast 7 - Eloquent
+
+#### 1. Basic Eloquent Relationships
+
+* hasOne
+* hasMany
+* belongsTo
+* belongsToMany
+* morphMany
+* morphToMany
+
+#### 2. Understanding Foreign Keys and Database Factories
+
+* Factories can be used to create dummy data for a database easily 
+ - in php artisan tinker, run `factory(App\ClassName::class)->create(['optionalArtibute' => 'Value']);`
+* To make a factory, `php artisan make:factory FactoryName`
+* To require referential integrity 
+    ```
+    $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
+    ```
+* Example, get the author of an article
+    ```
+     public function author(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    ```
+
+#### 3. Many to Many Relationships with Linking Tables
+
+ * To do a many to many relationship, we have to create an intermediate linking table to bridge the gap between each table. In the example, to link the tags table and the article table, create a article_tag table and link the ids
+
+ #### 4. Display Tags Under Each Article
+
+```
+    if(request('tag')){
+        $articles = Tag::where('name', request('tag'))->firstOrFail()->articles();
+    }else{
+        $articles = Article::latest()->get();
+    }
+```
+
+#### 5. Attatch and Validate Many-To-Many inserts
+
+* 1. In the create function
+    ```
+        return view('articles.create', [
+            'tags' => Tag::all()
+        ]);
+    ```
+* 2. In the store function 
+    ```
+        $this->validateArticle();
+
+        $article = new Article(request(['title', 'excerpt', 'body']));
+        $article->user_id = 1;
+        $article->save();
+
+        $article->tags()->attach(request('tags'));
+
+        return redirect(route('articles.index'));
+    ```
+
+* 3. In the validation function
+    ```
+        return request()->validate([
+            'title'=> 'required',
+            'excerpt' => 'required',
+            'body' => 'required',
+            'tags' => 'exists:tags,id'
+        ]);
+    ```
