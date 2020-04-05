@@ -315,7 +315,7 @@ We can then call this function to create - `Article::create($this->validateArtic
 
 * The redirect gets changed to `return redirect(route('articles.show', $article));`
 
-## 7. Laracast 7 - Eloquent
+## Laracast 7 - Eloquent
 
 #### 1. Basic Eloquent Relationships
 
