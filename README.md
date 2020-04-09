@@ -22,6 +22,7 @@ My journal for the CIS 401 Laracasts assignments
 - [Laracast 5 - Forms](#laracast-5---forms)
 - [Laracast 6 - Controller Techniques](#laracast-6---Controller-Techniques)
 - [Laracast 7 - Eloquent](#laracast-7---Eloquent)
+- [Laracast 8 - Authentication](#laracast-8---Authentication)
 
 ## Laracast 1 - Prerequisets 
 
@@ -390,3 +391,7 @@ We can then call this function to create - `Article::create($this->validateArtic
             'tags' => 'exists:tags,id'
         ]);
     ```
+
+## Laracast 8 - Authentication
+
+Laracast comes with authentication built in. To use authentication, install laravel/ui with composer, and then use php artisan ui with the --auth flag. Laravel UI also allows for using a front-end framework like bootstrap, vue or react. All that's left to do is connect to the database and run the prebuilt mirgrations and authentication is all set up. To use the reset email feature, emailing will have to be set up in the env file. For testing purposes, emails can be sent to a log file
