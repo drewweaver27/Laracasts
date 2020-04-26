@@ -23,6 +23,8 @@ My journal for the CIS 401 Laracasts assignments
 - [Laracast 6 - Controller Techniques](#laracast-6---Controller-Techniques)
 - [Laracast 7 - Eloquent](#laracast-7---Eloquent)
 - [Laracast 8 - Authentication](#laracast-8---Authentication)
+- [Laracast 9 - Core Conceptes](#laracast-9---Core-Concepts)
+- [Laracast 10 - Mail](#laracast-10---Mail)
 
 ## Laracast 1 - Prerequisets 
 
@@ -395,3 +397,63 @@ We can then call this function to create - `Article::create($this->validateArtic
 ## Laracast 8 - Authentication
 
 Laracast comes with authentication built in. To use authentication, install laravel/ui with composer, and then use php artisan ui with the --auth flag. Laravel UI also allows for using a front-end framework like bootstrap, vue or react. All that's left to do is connect to the database and run the prebuilt mirgrations and authentication is all set up. To use the reset email feature, emailing will have to be set up in the env file. For testing purposes, emails can be sent to a log file
+
+## Laracast 9 - Core-Concepts
+
+#### 1. Collections 
+
+- When things have a many-to-many relationship, they are returned as a "collection"
+- You can make a collection in tinker using the "collect" command and give it an array
+- Collections have a bunch of builtin methods (map, filter, merge, flatten, etc.)
+- Collection methods can be chained `filter()->map()`
+
+#### 2. CSRF Attacks, with Examples
+
+- CSRF = Cross-site Request Forgery
+- Laravel has built in CSRF managment with the @csrf directive
+
+#### 3. Service Container Fundamentals
+
+- Containers store services
+- Uses binding and keys
+
+#### 4. Automatically Resolve Dependancies 
+
+- Laravel can look down many layers of classes to see what can be instantiated/created
+- This is confusing, and he knows it is too. 
+- You can do this in the AppServiceProvider
+
+#### 5. Laravel Facades Demystified
+
+- Facades proxy to an underlying class
+
+#### 6. Service Providers are the Missing Piece
+
+- Each component has it's own service provider
+- You can use service providers and facades together
+- You can register new services in the AppServiceProvider
+
+## Laracast 10 - Mail
+
+#### 1. Send Raw Mail
+
+- We can use the Mail facade to send a raw email. 
+- *** Restart development server after changing env variables ***
+
+#### 2. Simulate an Inbox using Mailtrap
+
+- `php artisan make:mail`creates a new "mailable" object
+- you can use views to create html emails, and then use them in the mailable class
+
+#### 3. Send Email Using Markdown Templates
+
+- In the mailable, change view to markdown
+- You can use `php artisan make:mail Name --markdown=directory` to automatically make a markdown mailable 
+- To add styles, use `php artisan vendor:publish --tag=laravel-mail` 
+- You can create your own css in themes, and then go into config/mail and change the theme from default to the new theme name
+
+#### 4. Notifications VS. Mailables
+
+- To make notifications when a user does something (like process a payment), we can use the notifcation facade instead of Mail
+- `php artisan make:notification NotificationName`
+##### - ***Mine can be reached by going to localhost/notify/create, or through the "notifications" in the navigation bar***

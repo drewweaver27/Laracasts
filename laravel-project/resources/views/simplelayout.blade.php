@@ -34,20 +34,12 @@ Released   : 20140225
 				<li class="{{Request::path() === '/' ? 'current_page_item : ''"><a href="#" accesskey="1" title="">Homepage</a></li>
 				<li class="{{Request::path() === 'clients' ? 'current_page_item : ''"><a href="#" accesskey="2" title="">Our Clients</a></li>
 				<li class="{{Request::path() === 'about' ? 'current_page_item : ''"><a href="/about" accesskey="3" title="">About Us</a></li>
-				<li class="{{Request::path() === 'articles' ? 'current_page_item : ''"><a href="#" accesskey="4" title="">Articles</a></li>
-				<li class="{{Request::path() === '/' ? 'current_page_item : ''"><a href="#" accesskey="5" title="">Contact Us</a></li>
+				<li class="{{Request::path() === 'notifications' ? 'current_page_item : ''"><a href="/notify/create" accesskey="4" title="">Notifications</a></li>
+				<li class="{{Request::path() === 'contact' ? 'current_page_item : ''"><a href="/contact" accesskey="5" title="">Contact Us</a></li>
 			</ul>
 		</div>
 	</div>
-	<div id="header-featured">
-		<div id="banner-wrapper">
-			<div id="banner" class="container">
-				<h2>Maecenas luctus lectus</h2>
-				<p>This is <strong>SimpleWork</strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give us credit for it. Have fun :) </p>
-				<a href="#" class="button">Etiam posuere</a> </div>
-		</div>
-	</div>
-</div>
+	
     @yield('content')
 </body>
 </html>
