@@ -25,7 +25,7 @@ My journal for the CIS 401 Laracasts assignments
 - [Laracast 8 - Authentication](#laracast-8---Authentication)
 - [Laracast 9 - Core Conceptes](#laracast-9---Core-Concepts)
 - [Laracast 10 - Mail](#laracast-10---Mail)
-- [Laracast 11 - Notifications](#laracast-11---Notificatons)
+- [Laracast 11 - Notifications](#Laracast-11---Notifications)
 
 ## Laracast 1 - Prerequisets 
 
