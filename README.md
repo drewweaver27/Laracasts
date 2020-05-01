@@ -25,6 +25,7 @@ My journal for the CIS 401 Laracasts assignments
 - [Laracast 8 - Authentication](#laracast-8---Authentication)
 - [Laracast 9 - Core Conceptes](#laracast-9---Core-Concepts)
 - [Laracast 10 - Mail](#laracast-10---Mail)
+- [Laracast 11 - Notifications](#laracast-11---Notificatons)
 
 ## Laracast 1 - Prerequisets 
 
@@ -457,3 +458,22 @@ Laracast comes with authentication built in. To use authentication, install lara
 - To make notifications when a user does something (like process a payment), we can use the notifcation facade instead of Mail
 - `php artisan make:notification NotificationName`
 ##### - ***Mine can be reached by going to localhost/notify/create, or through the "notifications" in the navigation bar***
+
+
+## Laracast 11 - Notifications
+
+#### 1. Database Notifications
+- Notifications can go through many channels like email, slack, SMS as well as being stored in the database for retreival later
+- Laravel has built in notification table migrations
+- Data about the notification goes in the array in the ToArray function in the notification file
+- Notifications are usually tied to users who are notifiable
+- Notification data are able to be accessed as keys to the array
+- When you fetch the notification collection, you get a custom collection (DatabaseNotification Collection) that can be used to mark notifications read and unread without having to make queries in a loop
+- You can use "higher order TAP" where you want to call a method on a variable that returns void
+
+#### 2. Send SMS Notifications in 5 minutes
+- requires nexmo (account and composer package)
+- sent-from number needs to be setup in config/services
+- add the channel to notifications and the toNexmo method
+- get user phone number from the user model
+- you can setup user preferences and decide to use the nexmo channel based on a per-user situtation
