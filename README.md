@@ -477,3 +477,20 @@ Laracast comes with authentication built in. To use authentication, install lara
 - add the channel to notifications and the toNexmo method
 - get user phone number from the user model
 - you can setup user preferences and decide to use the nexmo channel based on a per-user situtation
+
+### Laracast 12 - Events
+- Like everything Laravel, events can be done in multiple ways and each way has it's share of pros and cons. 
+- You would use an event to trigger things to happen when a user does something. For example, when a payment is processed, that can trigger multiple things such as emailing a recipet, creating a shipping label, adding a user to a prefered shopper program, etc. 
+- He recommends using the built-in event and listener functions instead of just doing a whole procedure. 
+- Use `php:artisan make:event eventName` to create an event. 
+- Dispatch the event by using `EventName::dispatch('info')`
+- Make listeners to respond to this event - `php artisan make:listener listenerName -e eventName`
+- Link events and listeners in `EventServiceProvider.php` in the `$listen` array. 
+```
+protected $listen = [
+    EventName::class => [
+        ListenerName1::class,
+        ListenerName2::class
+    ]
+]
+```
